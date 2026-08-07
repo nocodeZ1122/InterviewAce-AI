@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>InterviewAce AI</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"/>
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="topbar-inner">
+
+        <a href="../landing.html"
+           class="brand">
+
+            Interview<span class="brand-accent">Ace</span>
+
+        </a>
+
+        <div class="topbar-status">
+
+            <span class="status-dot"></span>
+
+            AI Mentor Ready
+
+        </div>
+
+    </div>
+
+</header>
+
+<main id="app">
+
+    <!-- ===================================================== -->
+    <!-- QUESTION LIST -->
+    <!-- ===================================================== -->
+
+    <section id="list-view"
+             class="view">
+
+        <div class="view-header">
+
+            <span class="eyebrow">
+
+                PRACTICE
+
+            </span>
+
+            <h1>
+
+                Interview Practice
+
+            </h1>
+
+            <p class="subtitle">
+
+                Pick a coding interview problem and start an interactive mentoring session.
+
+            </p>
+
+        </div>
+
+        <div id="question-list"
+             class="question-list">
+
+            <p class="loading-text">
+
+                Loading questions...
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- CHAT VIEW -->
+    <!-- ===================================================== -->
+
+    <section id="chat-view"
+             class="view hidden">
+
+        <div class="chat-header">
+
+            <div class="chat-header-left">
+
+                <button id="back-btn"
+                        class="back-btn">
+
+                    ← Back to Questions
+
+                </button>
+
+                <h1 id="chat-question-title">
+
+                    Two Sum
+
+                </h1>
+
+                <div class="question-meta">
+
+                    <span class="meta-pill">
+
+                        Arrays
+
+                    </span>
+
+                    <span class="meta-pill">
+
+                        Hash Map
+
+                    </span>
+
+                    <span class="meta-pill difficulty">
+
+                        Easy
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- AI CARD -->
+        <!-- ========================================== -->
+
+        <div class="assistant-banner">
+
+            <div class="assistant-avatar">
+
+                IA
+
+            </div>
+
+            <div class="assistant-content">
+
+                <h3>
+
+                    InterviewAce Mentor
+
+                </h3>
+
+                <p>
+
+                    Powered by Gemini + RAG
+
+                </p>
+
+                <span>
+
+                    Learn to think like an interviewer, not memorize answers.
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MODES -->
+        <!-- ========================================== -->
+
+        <div class="mode-toolbar">
+
+            <button
+                id="explain-btn"
+                class="mode-btn active"
+                data-mode="explain">
+
+                💬
+
+                <span>Explain</span>
+
+            </button>
+
+            <button
+                id="hint-btn"
+                class="mode-btn"
+                data-mode="hint">
+
+                💡
+
+                <span>Hint</span>
+
+            </button>
+
+            <button
+                id="dry-run-btn"
+                class="mode-btn"
+                data-mode="dry_run">
+
+                ▶
+
+                <span>Dry Run</span>
+
+            </button>
+
+            <button
+                id="review-btn"
+                class="mode-btn"
+                data-mode="review">
+
+                📝
+
+                <span>Review</span>
+
+            </button>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- REVIEW MODE -->
+        <!-- ========================================== -->
+
+        <textarea
+            id="code-input"
+            class="hidden"
+            rows="12"
+            placeholder="Paste your solution here..."></textarea>
+
+        <!-- ========================================== -->
+        <!-- CHAT -->
+        <!-- ========================================== -->
+
+        <div id="chat-messages"
+             class="chat-messages">
+
+        </div>
+                <!-- ========================================== -->
+        <!-- SUGGESTED PROMPTS -->
+        <!-- ========================================== -->
+
+        <div class="suggestions">
+
+            <button class="suggestion">
+
+                Explain the intuition
+
+            </button>
+
+            <button class="suggestion">
+
+                Give me a hint
+
+            </button>
+
+            <button class="suggestion">
+
+                Dry run with an example
+
+            </button>
+
+            <button class="suggestion">
+
+                Time complexity
+
+            </button>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- CHAT INPUT -->
+        <!-- ========================================== -->
+
+        <form id="chat-form"
+              class="chat-form">
+
+            <div class="chat-input-wrapper">
+
+                <textarea
+                    id="chat-input"
+                    rows="3"
+                    placeholder="Ask your AI mentor anything about this problem..."></textarea>
+
+                <div class="chat-actions">
+
+                    <div class="input-tip">
+
+                        Press <strong>Enter</strong> to send
+
+                    </div>
+
+                    <button type="submit"
+                            class="send-btn">
+
+                        <span>Send</span>
+
+                        <span class="send-icon">➜</span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+
+<footer class="app-footer">
+
+    <div class="footer-inner">
+
+        <div>
+
+            <strong>InterviewAce AI</strong>
+
+            <span>
+
+                • Think. Reason. Improve.
+
+            </span>
+
+        </div>
+
+        <div class="footer-right">
+
+            Gemini • RAG • FastAPI • FAISS
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>
+
+    if(window.hljs){
+
+        hljs.highlightAll();
+
+    }
+
+</script>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
