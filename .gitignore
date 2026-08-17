@@ -40,3 +40,5 @@ Thumbs.db
 # ==========================
 dist/
 build/
+# Local database backup
+interviewace_backup.dump
